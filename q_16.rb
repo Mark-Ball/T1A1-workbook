@@ -12,35 +12,46 @@
 
 # Write a program that, given a person’s score can tell them: a) whether or not they’re allergic to a given item b) the full list of allergies.
 
-def detect_allergies(score)
-    values_for_each_allergy = {
-        eggs: 1, #2^^0
-        peanuts: 2, #2^^1
-        shellfish: 4, #2^^2
-        strawberries: 8, #2^^3
-        tomatoes: 16, #2^^4
-        chocolate: 32, #2^^5
-        pollen: 64, #2^^6
-        cats: 128  #2^^7
-    }
-
-    if score > 256
-        return "Impossible to compute"
-    end
-
-end
-
-def identify_highest_power(score)
+#this method identifies the highest power of two that is lower than score
+def identify_highest_power(value)
     powers_of_two = [256.0, 128.0, 64.0, 32.0, 16.0, 8.0, 4.0, 2.0, 1.0]
 
-    for powers in powers_of_two
-        if score / powers < 1
+    for power in powers_of_two
+        if value / power < 1
             next
         else
-            return powers
+            return power
         end
     end
 end
 
-p(3 / 256.0)
-p(identify_highest_power(3))
+def detect_allergies(score)
+    allergies_for_each_value = {
+        "1" => "eggs", #2^^0
+        "2" => "peanuts", #2^^1
+        "4" => "shellfish", #2^^2
+        "8" => "strawberries", #2^^3
+        "16" => "tomatoes", #2^^4
+        "32" => "chocolate", #2^^5
+        "64" => "pollen", #2^^6
+        "128" => "cats"  #2^^7
+    }
+
+    if score > 256 || score < 1 || score.class == Float
+        return "Impossible to compute"
+    end
+
+    allergies = []
+    while score > 0 # the loop pushes the allergy corresponding to the highest index onto the array, then subtracts that value from the score and tests again
+        allergies.push(allergies_for_each_value[identify_highest_power(score).to_i.to_s])
+        score -= identify_highest_power(score) 
+        identify_highest_power(score)
+    end
+
+    return allergies
+end
+
+
+# p("Highest power was: #{identify_highest_power(7)}")
+# p(identify_highest_power(7).to_i.to_s)
+p(detect_allergies(255))
