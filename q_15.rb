@@ -1,5 +1,5 @@
-raining = true
-temperature = "hello"
+raining = false
+temperature = 15
 
 if raining == true
     if temperature < 15
