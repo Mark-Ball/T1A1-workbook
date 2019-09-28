@@ -291,6 +291,7 @@ arr = [5, 22, 29, 19, 39, 51, 78, 96, 84]
 1. Create a flowchart to outline the steps for listing all prime numbers between 1 and 100 (inclusive). Your flowchart should make use of standard conventions for flowcharts to indicate processes, tasks, actions, or operations
 2. Write pseudocode for the process outlined in your flowchart
 
+##### Flow chart
 ![q_14_flowchart](./docs/q_14_flowchart.jpg)
 
 ##### Pseudocode
@@ -306,4 +307,30 @@ arr = [5, 22, 29, 19, 39, 51, 78, 96, 84]
 5.	If the next prime in the array either does not exist or is not < n/2, then n is a prime number. We add n to the array of primes so that it may be used to test future numbers.
 6.	We then add 1 to n and continue testing if n is less than or equal to 100 (back to step 2).
 7.	If n is greater than 100, we stop the program.
+
+#### 15. Write pseudocode OR Ruby code for the following problem:
+
+You have access to two variables: raining (boolean) and temperature (integer). If it’s raining and the temperature is less than 15 degrees, print to the screen “It’s wet and cold”, if it is less than 15 but not raining print “It’s not raining but cold”. If it’s greater than or equal to 15 but not raining print “It’s warm but not raining”, and otherwise tell them “It’s warm and raining”.
+
+##### Ruby code
+```Ruby
+raining = false
+temperature = 16
+
+if raining == true
+    if temperature < 15
+        puts("It's wet and cold")
+    else
+        puts("It's warm and raining")
+    end
+elsif raining == false
+    if temperature < 15
+        puts("It's not raining but cold")
+    else
+        puts("It's warm but not raining")
+    end
+else
+    puts("Invalid input")
+end
+```
 

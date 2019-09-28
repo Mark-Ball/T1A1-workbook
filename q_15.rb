@@ -1,5 +1,5 @@
 raining = false
-temperature = 15
+temperature = 16
 
 if raining == true
     if temperature < 15
