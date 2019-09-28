@@ -175,3 +175,19 @@ end
 - if x equals 2, line 4 executes, "x was 2" is printed
 - line 6 executes if neither lines 1 or 3 were true
 
+#### 9. Explain type coercion (100 words)
+
+Type coercion is the transformation of one data type of object into a different data type with similar content. Some methods available in Ruby for type coercion are: to_i, to_s, to_sym. These will convert the data the method is called on to the integer, string, and symbol data types respectively.
+
+For example “5” (the string 5) can be coerced into an integer 5 using the to_i method in Ruby. 
+
+```Ruby
+“5”.to_i 
+=> 5
+```
+One must be careful to use the method only on certain types of data, or type coercion may provide unexpected results. For example:
+
+```Ruby
+“hello”.to_i
+=> 0
+```
