@@ -285,3 +285,25 @@ With the correction, the array has the first two out-of-order elements (39 and 1
 ```Ruby
 arr = [5, 22, 29, 19, 39, 51, 78, 96, 84]
 ```
+
+#### 14. Demonstrate your algorithmic thinking through completing the following two tasks, in order:
+
+1. Create a flowchart to outline the steps for listing all prime numbers between 1 and 100 (inclusive). Your flowchart should make use of standard conventions for flowcharts to indicate processes, tasks, actions, or operations
+2. Write pseudocode for the process outlined in your flowchart
+
+![q_14_flowchart](./docs/q_14_flowchart.jpg)
+
+##### Pseudocode
+- The logic of the solution is that each number ‘n’ between 1 and 100 (inclusive) must be tested (meaning checked if it is divisible) by all prime numbers less than n/2.
+- Prime numbers may be checked rather than all numbers because if a number is divisible by a number, it will also be divisible by factors of that number. For example if a number is divisible by 3, we do not need to check whether it is divisible by 6, 9, 12 etc because if it is divisible by those numbers, it will be divisible by all factors of those numbers.
+- Only primes less than half the value of n need to be checked because any number more than half of n can never be a factor of n. For example if we are testing whether 11 is a prime, we do not need to check if 7 is a factor because it only goes into 11 once.
+1.	We start by initialising variables:
+    - The value we are testing to determine if they are prime: n = 1
+    - The array of primes which we will use to test n against. At the start it is an array with the number 2 in it.
+2.	As we have been asked only to find the primes less than or equal to 100, we test only if n <= 100, else we end the program.
+3.	We test if n is divisible by the next (on the first iteration, this would be the first) number in the primes array. If it is, we know n is not prime and we go to the next n (back to step 2).
+4.	If n is not divisible by the prime, we ask if the next prime in the array is < n/2. If it is, we test if n is divisible by the next prime (back to step 3).
+5.	If the next prime in the array either does not exist or is not < n/2, then n is a prime number. We add n to the array of primes so that it may be used to test future numbers.
+6.	We then add 1 to n and continue testing if n is less than or equal to 100 (back to step 2).
+7.	If n is greater than 100, we stop the program.
+
