@@ -205,3 +205,34 @@ Nil |	The absence of value |	nil
 
 An understanding of data types is important to know how variables may be used. For example two integers may be added, but an integer and a string cannot be.
 
+#### 11. Here’s the problem: “There is a restaurant serving a variety of food. The customers want to be able to buy food of their choice. All the staff just quit, how can you build an app to replace them?”
+
+Identify the classes you would use to solve the problem
+
+Write a short explanation of why you would use the classes you have identified
+
+I would implement the MVC model in order to create separation of concerns. This is important to achieve simplification and maintainability of the code as it would be easier to understand which section/s of the code must be changed in response to a desired feature or error. The following classes are required:
+
+##### 1. OrderingModel
+
+The role of the Model is to handle all data associated with the ordering process. OrderingModel could contain the following methods:
+
+- 'initialize' to define which foods and in what quantities are available at the restaurant
+- Calculate number of each food item available
+- Update number of each item available when one is ordered
+- Update number of each item available when they are restocked
+
+##### 2. OrderingView
+
+The role of the View is to display information to the person ordering. OrderingView could contain the following methods:
+
+- ‘greeting’ to welcome the user to the restaurant
+- ‘menu’ to inform the user what food is available
+- ‘what_would_you_like_to_order’ to print to the screen a request for user input and return their response
+- ‘wrong_answer’ to handle any unexpected inputs
+- ‘confirmation’ to allow the user to review their order
+- ‘thank_you’ to thank the person for dining at the restaurant
+
+##### 3. OrderingController
+
+The controller will contain the logic of the program. This would include calling the greeting, calling the method which prompts the user for input, taking the user input and responding with the correct method from OrderingView (either showing the menu or calling another method asking what they would like to order), calling the methods from OrderintModel to update the stock of food items (either in response to an order which would decrease the stock or a restock which would increase the stock), and finally calling the method to say thank you to the user when they are finished ordering.
