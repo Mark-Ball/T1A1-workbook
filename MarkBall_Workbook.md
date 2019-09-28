@@ -64,18 +64,22 @@ Word count guide: 50 - 100 words on each data structure
 A data structure is a format for the organisation, management and storage of information which enables access and modification.
 
 ##### Array
-An array is an ordered list of values. Each element of an array is accessed by its index number starting from ᴢero (e.g. the number 1 in the array numbers = [1, 2, 3] would be accessed with numbers[0]). An array would be used where the order of elements matters and all the information in the array is similar, meaning that a single array might hold multiple names, but a single array would not be the ideal data structure to hold names, ages, addresses, etc as it would be confusing to query using only an index.
+An array is an ordered list of values where each element is accessed by its index number starting from ᴢero. An array could be used where:
+- the programmer wants to group multiple data items under a single name
+ - the order of elements matters
+ - all the information in the array is similar, meaning that a single array might hold multiple names, but a single array would not be the ideal data structure to hold names, ages, addresses, etc as it would be confusing to query using only an index.
 
 ##### Hash
-A hash is an unordered list of key-value pairs. Each element of a hash is accessed by its key. A hash would be used when there are multiple pieces of data that are associated with one object. An example of a hash containing information about a person is the following:
-
-> info = { name: “Mark”, occupation: “student”, age: 30 }
-
-A hash has the advantage compared to an array of being more readable as the keys can be named to describe the data held in the value. 
+A hash is an unordered list of key-value pairs where each element is accessed by its key. A hash could be used when:
+-  there are multiple pieces of data that are associated with one object. The example below contains multiple pieces of information about a single person.
+```Ruby
+info = { name: “Mark”, occupation: “student”, age: 30 }
+```
+- A hash has the advantage compared to an array of being more readable as the keys can be named to describe the data held in the value. 
 
 
 ##### Queue
-A queue is like an array in that it is an ordered list of values, with two differences being that elements can only be added to the end of the queue, and elements can only be removed from the front of the list. This is an implementation of FIFO (first in first out). Elements cannot be added or removed from intermediate locations in the stack. A queue would be used when you wish restrict the manipulation of the data to FIFO or retrieve elements in the same order they were entered in.
+A queue is like an array in that it is an ordered list of values, with two differences being that elements can only be added to the end of the queue, and elements can only be removed from the front of the list (i.e. FIFO - first in first out). A queue would be used when you wish restrict the manipulation of the data to FIFO or retrieve elements in the same order they were entered in.
 
 #### 5. Describe the features of interpreters and compilers and how they are different.
 
@@ -99,16 +103,17 @@ Word count guide: 200 - 400 words on each language
 ##### Benefits
 
 - Ruby was built with the intention of being a high-level language with <b>human-readable syntax</b> which can be written similarly to plain English. This is achieved by various shortcuts such as allowing the parentheses on certain methods to be omitted. For example:
->puts "hello"
-
+```Ruby
+puts "hello"
+```
 can be written instead of
-
->puts("hello")
-
+```Ruby
+puts("hello")
+```
 and allowing single-line conditionals e.g.
-
->puts “something” if x == 1
-
+```Ruby
+puts “something” if x == 1
+```
 - There is an extensive community of Ruby developers and free packages, called <b>gems</b>, which any user can download and implement in their own projects. Gems are simple to include using a command line argument and an entire ecosystem of developers producing, testing, and modifying gems means that the best gems are likely to be iterated upon and promoted. These gems speed up the development process and allow faster deployment of projects as they allow the programmer to save time on writing components of their programs.
 
 - Ruby is an <b>object-oriented programming language</b>, which has the benefits of modularity (if there is a problem with a certain object, we know we need to debug the code for that class only), and use of inheritance which allows us to avoid re-writing code.
