@@ -200,7 +200,7 @@ Data type |	Explanation |	Example
 String |	Text |	“Mark”, “hello”
 Integer |	Whole number |	1, 5, 9562
 Float |	Number with decimal |	1.0, 5.2
-Boolean |	Truthy or falsy values |	True, False
+Boolean |	True or false |	True, False
 Nil |	The absence of value |	nil
 
 An understanding of data types is important to know how variables may be used. For example two integers may be added, but an integer and a string cannot be.
@@ -255,4 +255,33 @@ print fahrenheit
 print "."
 ```
 
+#### 13. The following code looks for the first two elements that are out of order and swaps them; however, it is not producing the correct results. Rewrite the code so that it works correctly.
+```Ruby
+arr = [5, 22, 29, 39, 19, 51, 78, 96, 84]
+i = 0
+while (i < arr.size - 1 and arr[i] < arr[i + 1])
+	i = i + 1 end
+puts i
+    arr[i] = arr[i + 1]
+    arr[i + 1] = arr[i]
+```
+After the above code is executed, the array is the following:
+```Ruby
+arr = [5, 22, 29, 19, 19, 51, 78, 96, 84]
+```
+The corrected code is below:
 
+```Ruby
+arr = [5, 22, 29, 39, 19, 51, 78, 96, 84]
+i = 0
+while (i < arr.size - 1 and arr[i] < arr[i + 1])
+    i = i + 1 end
+puts i
+placeholder = arr[i]
+arr[i] = arr[i + 1]
+arr[i + 1] = placeholder
+```
+With the correction, the array has the first two out-of-order elements (39 and 19) swapped:
+```Ruby
+arr = [5, 22, 29, 19, 39, 51, 78, 96, 84]
+```
