@@ -236,3 +236,23 @@ The role of the View is to display information to the person ordering. OrderingV
 ##### 3. OrderingController
 
 The controller will contain the logic of the program. This would include calling the greeting, calling the method which prompts the user for input, taking the user input and responding with the correct method from OrderingView (either showing the menu or calling another method asking what they would like to order), calling the methods from OrderintModel to update the stock of food items (either in response to an order which would decrease the stock or a restock which would increase the stock), and finally calling the method to say thank you to the user when they are finished ordering.
+
+#### 12. Identify and explain the error in the code that is preventing correct execution of the program (100 words)
+
+``` Ruby
+celsius = gets
+fahrenheit = (celsius * 9 / 5) + 32
+print "The result is: "
+print fahrenheit
+puts "."
+```
+The problem is that the variable celsius is a string because anything passed in via the gets method is the datatype string. This causes a TypeError in line 2 because a string cannot be divided by an integer. The error can be corrected by changing gets to gets.to_i in line 1 which coerces the data type to integer, which can then be used in a calculation. The corrected code is presented below:
+```Ruby
+celcius = gets.to_i
+fahrenheit = (celcius * 9 / 5) + 32
+print "The result is: "
+print fahrenheit
+print "."
+```
+
+
