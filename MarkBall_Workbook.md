@@ -133,3 +133,45 @@ and allowing single-line conditionals e.g.
 #### Disadvantages
 - <b>Complexity</b>: as the filtering out of unnecessary data (known as garbage collection) is not automated in C++, the programmer must master the use of pointers (variables which store the memory location of another variable). Incorrect use of these pointers can cause unexpected results or crashes.
 - <b>Security vulnerabilities</b>: due to the requirement for memory management, C++ has a vulnerability called ‘buffer-overflow’. For example lets say there is a list of 10 numbers. If you query the 11th number, many languages throw an error, but in a memory-unsafe programming language like C++, the program will access the memory location of the 11th element, if it existed. This element may be unrelated to the original list of 10 numbers. This can cause a security problem when user data such as passwords are kept in the memory location of the 11th element as they can be read even though this was not intended by the programmer.
+
+#### 7. Identify TWO ethical issues from the areas below and discuss the extent to which an IT professional is ethically responsible in terms of the issue.
+
+Word count guide: 200 - 400 words for each ethical issue
+
+List of topics containing ethical issues:
+
+- access to a user’s personal information (medical, family, financial, personal attributes such as sexuality, religion, or beliefs)
+- intellectual property, copyright, and acknowledgement.
+- criminal acts such as theft, fraud, trafficking and distribution of prohibited substances, terrorism
+- GPS tracking data and other types of metadata, MAC addresses, hardware fingerprints
+- freedom of thought, conscience, speech and the media
+- aggressive sales and marketing practices designed to mislead and deceive consumers
+- trading of shares on the stock exchange OR crypto-currencies
+
+For each ethical issue identify a source of legal information relating to the ethical issue and discuss whether the law is helpful in assisting a developer to act in an ethical way.
+
+Word count guide: 200 words max
+
+Conduct research into a case study of ONE of the ethical issues you have chosen discuss how an ethical IT professional should respond to the case study and how they might mitigate or prevent ethical breaches.
+
+Word count guide: 400 - 600 words
+
+#### 8. Explain control flow, using an example from the Ruby programming language (100 words)
+
+Control flow is the order in which lines of code are executed. An example from the Ruby programming language is an if/elsif/else statement:
+
+```Ruby
+if x == 1
+    puts "x was 1"
+elsif x == 2
+    puts "x was 2"
+else
+    puts "x was something else"
+end
+```
+
+- if x equals 1, line 2 executes, "x was 1" is printed
+- line 3 is evaluated if line 1 was not true 
+- if x equals 2, line 4 executes, "x was 2" is printed
+- line 6 executes if neither lines 1 or 3 were true
+
