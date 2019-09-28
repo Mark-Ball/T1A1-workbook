@@ -191,3 +191,17 @@ One must be careful to use the method only on certain types of data, or type coe
 “hello”.to_i
 => 0
 ```
+#### 10. Explain data types, using examples (100 words)
+
+Data types are used to classify the kind of value that is held by a variable and what operations and methods can be applied to it. Some examples of data types are provided below.
+
+Data type |	Explanation |	Example
+-|-|-
+String |	Text |	“Mark”, “hello”
+Integer |	Whole number |	1, 5, 9562
+Float |	Number with decimal |	1.0, 5.2
+Boolean |	Truthy or falsy values |	True, False
+Nil |	The absence of value |	nil
+
+An understanding of data types is important to know how variables may be used. For example two integers may be added, but an integer and a string cannot be.
+
