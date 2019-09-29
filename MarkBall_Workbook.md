@@ -25,7 +25,7 @@ Explain how each technology has contributed to the development of the internet.
 Word count guide: 50 - 100 words per dot point
 
 #### Packets
-Packets are formatted units of data carried by a packet-switched network. A packet consists of control information and user data. Control information is the data for delivering the packet e.g. the sender’s IP address, receiver’s IP address, or number of packets the data has been broken into. A packet is usually 1000-1500 bytes of data. Packets have contributed to the development of the internet because splitting transmitted data into packets and having each packet choose the best available route, instead of all having a pre-defined route, makes the network more efficient. As the route that each packet will take is determined individually on a millisecond-by-millisecond basis, the network can balance the load across different piece of equipment and if there is a problem with one piece of network equipment, the packets can be routed around the problem, ensuring delivery of all the user data.
+Packets are formatted units of data carried by a packet-switched network. A packet consists of control information and user data. Control information is the data for delivering the packet e.g. the sender’s IP address, receiver’s IP address, or number of packets the data has been broken into. A packet is usually 1000-1500 bytes of data. Packets have contributed to the development of the internet because splitting transmitted data into packets and having each packet choose the best available route, instead of all having a pre-defined route, makes the network more efficient. As the route that each packet will take is determined individually on a millisecond-by-millisecond basis, the network can balance the load across different pieces of equipment and if there is a problem with one piece of network equipment, the packets can be routed around the problem, ensuring delivery of all the user data.
 
 #### IP addresses (IPv4 and IPv6)
 An IP (internet protocol) address is a unique number assigned to each device connected to a computer network that uses IP for communication. IPv4 defines as IP addresses as a 32-bit number, however as the internet grew and more unique addresses were required, IPv6 using 128 bits for addresses was developed. The number of available IPv6 addresses is 2<sup>128</sup> or approximately 3.4 x 10<sup>38</sup>. IP addresses have contributed to the development of the internet by allowing each node on the network to have unique addresses for communication.
@@ -34,7 +34,7 @@ An IP (internet protocol) address is a unique number assigned to each device con
 Routing is the process of selecting a path for traffic in a network and routers are the devices within the network that performs this function. On the internet, routers direct packets to travel down specific cables to other routers which perform the same function, eventually directing the packets to their intended destination. Routers have algorithms which consider throughput, overhead, stability and other factors to select the best route and stores these routes in a table. Routing has contributed to the development of the internet by allowing information in the form of packets to be delivered as fast as possible.
 
 #### Domains and DNS
-A domain name server maintains a directory of domain names and translates them into IP addresses. Each website has an IP address, for example the IP address of google is 172.217.25.142, which can be typed into the URL bar to access the site. However this is difficult for a human being to remember. Domain names allow the user to enter a name like ‘google.com’ into the URL bar, and as the DNS keeps a record of the IP addresses associated with that name, this connects to the website. DNS contributed to the development of the internet by making web browsing simpler for human beings, who only need to remember the name of a website instead of the IP address.
+A domain name server maintains a directory of domain names and translates them into IP addresses. Each website has an IP address, for example one of the IP addresses of google is 172.217.25.142, which can be typed into the URL bar to access the site. However this is difficult for a human being to remember. Domain names allow the user to enter a name like ‘google.com’ into the URL bar, and as the DNS keeps a record of the IP addresses associated with that name, this connects to the website. DNS contributed to the development of the internet by making web browsing simpler for human beings, who only need to remember the name of a website instead of the IP address.
 
 ## 3. Define the features of the following technologies that are essential in terms of the development of the internet:
 - TCP (word count guide: 150 - 300 words)
@@ -47,15 +47,19 @@ Word count guide: see above.
 
 #### TCP
 TCP (transmission control protocol) is a standard that defines how to establish and maintain a connection between application programs which exchange data. TCP works with IP to define how computers send packets of data to each other. 
-The major feature of TCP is the reliability of the service, which is achieved by a system of positive acknowledgement with re-transmission. At the beginning of the communication, the sender will tell the receiver the number of packets and their order. This allows the receiver to know if packets have been lost during transmission. The receiver sends a message to the sender as it received packets of data, with the sender keeping a record of these acknowledgements. If an acknowledgement is not sent within a certain period, the packet is sent again. This feature makes the service very reliable, as there are checks and acknowledgement that data has been received, but this comes at the cost of speed. This technology has contributed to the development of client and server communication over the internet by creating a method to communication data which is reliable.
+The major feature of TCP is the reliability of the service, which is achieved by a system of positive acknowledgement with re-transmission. At the beginning of the communication, the sender will tell the receiver the number of packets and their order. This allows the receiver to know if packets have been lost during transmission. The receiver sends a message to the sender as it received packets of data, with the sender keeping a record of these acknowledgements. If an acknowledgement is not sent within a certain period, the packet is sent again. This feature makes the service very reliable, as there are checks and acknowledgement that data has been received, but this comes at the cost of speed. 
+
+TCP has contributed to the development of client and server communication over the internet by creating a method to communication data which is reliable and standardising the method of communication for the many different networks that existed previously.
 
 #### HTTP and HTTPS
 HTTP and HTTPS stand for hypertext transfer protocol and hypertext transfer protocol secure. Communication between clients (e.g. a web browser) and servers on the internet is done by requests and responses. When a client wants to receive data, for example to display a webpage, it sends an HTTP request to the web server, which then runs an application to process the request and sends an HTTP response back. This response contains the data, which in the example of a webpage could be an HTML page.
 
-#### Web browsers
-A web browser is a software application which fetches information from the internet and displays them to the user on their device. The most popular web browsers are Google Chrome, Mozilla Firefox, and Internet Explorer. The browsing experience begins when the user enters a URL, usually an HTTP or HTTPS, which requests the data needed to display the webpage. Once this data is received, the browser’s rendering engine transforms the information received, such as HTML and CSS code, into a visual representation on the user’s device. Different engines power different browsers. For example, the engines which power the three most popular browsers are Blink (Google Chrome), Gecko (Mozilla Firefox), and Trident (Internet Explorer). Each browser has also released developer tools. These developer tools provides a multitude of functionality: allowing the user to view and edit the webpage’s HTML and CSS, view and debug network activity, view the website’s performance (e.g. load speed), view memory usage and leaks, inspect all applications that are loaded, view security information, and audit the webpage for issues such as accessibility and performance . An example of the information provided by the developer tools for google chrome are provided in Figure 1.
+HTTP and HTTPs have contributed to the development of client and server communication over the internet by providing the capability to allow a user's home computer to request data, which can then be displayed at home on their screen.
 
-![devtools](/docs/chrome_devtools.jpg)
+#### Web browsers
+A web browser is a software application which fetches information from the internet and displays them to the user on their device. The most popular web browsers are Google Chrome, Mozilla Firefox, and Internet Explorer. The browsing experience begins when the user enters a URL, usually an HTTP or HTTPS, which requests the data needed to display the webpage. Once this data is received, the browser’s rendering engine transforms the information received, such as HTML and CSS code, into a visual representation on the user’s device. Different engines power different browsers. For example, the engines which power the three most popular browsers are Blink (Google Chrome), Gecko (Mozilla Firefox), and Trident (Internet Explorer). Each browser has also released developer tools. These developer tools provides a multitude of functionality: allowing the user to view and edit the webpage’s HTML and CSS, view and debug network activity, view the website’s performance (e.g. load speed), view memory usage and leaks, inspect all applications that are loaded, view security information, and audit the webpage for issues such as accessibility and performance.
+
+Web browsers have contributed to the development of client and server communication over the internet by providing software which allows individuals to request resources from the internet and display them at home. Due to the rendering engine of the browser, the resources are displayed in a form more easy to understand.
 
 ## 4. Identify THREE data structures used in the Ruby programming language and explain the reasons for using each.
 
@@ -64,35 +68,34 @@ Word count guide: 50 - 100 words on each data structure
 A data structure is a format for the organisation, management and storage of information which enables access and modification.
 
 #### Array
-An array is an ordered list of values where each element is accessed by its index number starting from ᴢero. An array could be used where:
+An array is an ordered list of values where each element is accessed by its index number starting from ᴢero. Reasons for using an array could be:
 - the programmer wants to group multiple data items under a single name
  - the order of elements matters
  - all the information in the array is similar, meaning that a single array might hold multiple names, but a single array would not be the ideal data structure to hold names, ages, addresses, etc as it would be confusing to query using only an index.
 
 #### Hash
-A hash is an unordered list of key-value pairs where each element is accessed by its key. A hash could be used when:
+A hash is an unordered list of key-value pairs where each element is accessed by its key. Reasons for using a hash could be:
 -  there are multiple pieces of data that are associated with one object. The example below contains multiple pieces of information about a single person.
 ```Ruby
 info = { name: “Mark”, occupation: “student”, age: 30 }
 ```
 - A hash has the advantage compared to an array of being more readable as the keys can be named to describe the data held in the value. 
 
-
 #### Queue
-A queue is like an array in that it is an ordered list of values, with two differences being that elements can only be added to the end of the queue, and elements can only be removed from the front of the list (i.e. FIFO - first in first out). A queue would be used when you wish restrict the manipulation of the data to FIFO or retrieve elements in the same order they were entered in.
+A queue is like an array in that it is an ordered list of values, with two differences being that elements can only be added to the end of the queue, and elements can only be removed from the front of the list (i.e. FIFO - first in first out). A reason to use a queue would be used when you wish restrict the manipulation of the data to FIFO or retrieve elements in the same order they were entered in.
 
 ## 5. Describe the features of interpreters and compilers and how they are different.
 
 Word count guide: 100 - 200 words on each way code is executed.
 
-Compiled languages are written in one language and before being run are translated into another language. Once translation is complete the executable code may be set aside or run. Common compiled languages include C, C++, and Rust. 
+<b>Compiled</b> languages are written in one language and are translated into another language which is more understandable by a computer before being run. Once translation is complete the executable code may be set aside or run. Common compiled languages include C, C++, and Rust. 
 
-Interpreted languages execute without compiling the entire source code into a machine-readable form. Instead each statement is translated into a sequence of subroutines and then into another language. Perhaps confusingly, the step of compilation into machine readable code is still performed but occurs at runtime rather than as a separate action. Examples of interpreted languages are Ruby, Python, and PHP.
+<b>Interpreted</b> languages execute without compiling the entire source code into a machine-readable form. Instead each statement is translated into a sequence of subroutines and then into another language. Perhaps confusingly, the step of compilation into machine readable code is still performed but occurs at runtime rather than as a separate action. Examples of interpreted languages are Ruby, Python, and PHP.
 
-This difference between compiled and interpreted leads to three main differences:
-- Error handling. Compiled languages compile the entire source code and when throws errors only after the compilation is complete. Interpreted languages compile line-by-line and will throw an error and halt the remaining execution of the program when an error is encountered.
-- Speed. Compiled languages run faster than interpreted languages because interpreted languages have the additional step of turning the code into a form the computer can execute at runtime, rather than having machine-executable code already compiled.  
-- Platform independence. For a compiled language, a program compiled on a Windows computer cannot simply be copied to a Linux computer and run correctly. The program would have to be re-compiled from the source code on the second machine to run correctly. For an interpreted language, as long as the language (e.g. Ruby) is installed on the machine, the code written in that language can be executed on computers running difference operating systems without an additional compilation step.
+This difference between compiled and interpreted languages leads to three main differences:
+- <b>Error handling</b>. Compiled languages compile the entire source code and when throws errors only after the compilation is complete. Interpreted languages compile line-by-line and will throw an error and halt the remaining execution of the program when an error is encountered.
+- <b>Speed</b>. Compiled languages run faster than interpreted languages because interpreted languages have the additional step of turning the code into a form the computer can execute at runtime, rather than having machine-executable code already compiled.  
+- <b>Platform independence</b>. For a compiled language, a program compiled on a Windows computer cannot simply be copied to a Linux computer and run correctly. The program would have to be re-compiled from the source code on the second machine to run correctly. For an interpreted language, as long as the language (e.g. Ruby) is installed on the machine, the code written in that language can be executed on computers running difference operating systems without an additional compilation step.
 
 ## 6. Identify TWO commonly used programming languages and explain the benefits and drawbacks of each.
 
@@ -316,7 +319,7 @@ print "The result is: "
 print fahrenheit
 puts "."
 ```
-The problem is that the variable celsius is a string because it created via the gets method. This causes a TypeError in line 2 because a string cannot be divided by an integer. The error can be corrected by changing gets to gets.to_f in line 1 which coerces the data type to float, which can then be used in a calculation. Provides a float solution. There would be a rounding error if gets was coerced to an integer. The corrected code is presented below:
+The problem is that the variable celsius is a string because it is created via the gets method. This causes a TypeError in line 2 because a string cannot be divided by an integer. The error can be corrected by changing gets to gets.to_f in line 1 which coerces the data type to float, which can then be used in a calculation and provides a float solution. There would be a rounding error if celsius was coerced to an integer. The corrected code is presented below:
 ```Ruby
 celsius = gets.to_f
 fahrenheit = (celsius * 9 / 5) + 32
