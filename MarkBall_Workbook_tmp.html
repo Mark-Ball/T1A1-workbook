@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MarkBall_Workbook.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h2 id="1-research-the-development-of-the-internet-from-1980-to-today-you-must-describe-at-least-five-key-events-in-the-development-of-the-internet-you-can-refer-to-events-people-of-significance-or-technologies-and-how-they-have-changed-over-time">1. Research the development of the internet from 1980 to today. You must describe at least FIVE key events in the development of the internet. You can refer to events, people of significance, or technologies and how they have changed over time.</h2>
+<p>Word count guide 300 - 500 words.</p>
+<ul>
+<li>
+<p>1983: TCP/IP (transmission control protocol/internet protocol) is standardised. TCP/IP is the set of rules that specifies how data is exchanged over the internet. The TCP portion controls how the data is broken into packets by the sender and then reassembled correctly by the receiver. The IP portion defines the address that the packets will be sent to and the route that each packet will take</p>
+</li>
+<li>
+<p>1989: Tim Berners-Lee begins work on a project to allow millions of computers to connect using an emerging technology called hypertext. In this project, he creates three fundamental technologies that are used in the web even today:</p>
+<ul>
+<li>HTML, hypertext markup language used to organise information on webpages.</li>
+<li>URI, uniform resource identifiers used to uniquely identify each resource on the web.</li>
+<li>HTTP, hypertext transfer protocol which is used for the retrieval of linked resources across the web.</li>
+</ul>
+</li>
+<li>
+<p>1989: the first commercial ISP - The World, operated by a small software company called Software Tool &amp; Die - begins serving customers. Prior to this, the internet was reserved for research and military use. This was met with controversy as Government institutions and universities blocked or attempted to shut down The World as they believed that the internet should remain exclusively for research and military use, not commercial. This controversy was resolved when the National Science Foundation, a US government agency which supports research in all non-medical fields of science and engineering, granted Software Tool &amp; Die permission to provide public internet access.</p>
+</li>
+<li>
+<p>1990: the first internet search engine, Archie, was developed by Alan Emtage at McGill University. Being the first-ever internet search engine, Archie was not as sophisticated as modern search engines like Google. Archie functioned by taking a string input or regular expression from the user and retrieving a file matching the query. Importantly, Archie did not index the content of files and therefore only the names of files were searchable.</p>
+</li>
+<li>
+<p>1991: the first website is built by Tim Berners-Lee at http://info.cern.ch/. The website ran on a NeXT computer at CERN. It provided an explanation about what the world wide web was, how one could own a browser, technical information about the internet, people involved in the project, and even allowed people to access the code for the internet. The website was built using raw HTML and includes all the default styling that HTML has even today, such as Times New Roman font, left-aligned elements, and blue underlined text for links.</p>
+</li>
+</ul>
+<h2 id="2-define-the-features-of-the-following-technologies-that-are-essential-in-terms-of-the-development-of-the-internet">2. Define the features of the following technologies that are essential in terms of the development of the internet:</h2>
+<ul>
+<li>packets</li>
+<li>IP addresses (IPv4 and IPv6)</li>
+<li>routers and routing</li>
+<li>domains and DNS</li>
+</ul>
+<p>Explain how each technology has contributed to the development of the internet.</p>
+<p>Word count guide: 50 - 100 words per dot point</p>
+<h4 id="packets">Packets</h4>
+<p>Packets are formatted units of data carried by a packet-switched network. A packet consists of control information and user data. Control information is the data for delivering the packet e.g. the sender’s IP address, receiver’s IP address, or number of packets the data has been broken into. A packet is usually 1000-1500 bytes of data. Packets have contributed to the development of the internet because splitting transmitted data into packets and having each packet choose the best available route, instead of all having a pre-defined route, makes the network more efficient. As the route that each packet will take is determined individually on a millisecond-by-millisecond basis, the network can balance the load across different pieces of equipment and if there is a problem with one piece of network equipment, the packets can be routed around the problem, ensuring delivery of all the user data.</p>
+<h4 id="ip-addresses-ipv4-and-ipv6">IP addresses (IPv4 and IPv6)</h4>
+<p>An IP (internet protocol) address is a unique number assigned to each device connected to a computer network that uses IP for communication. IPv4 defines as IP addresses as a 32-bit number, however as the internet grew and more unique addresses were required, IPv6 using 128 bits for addresses was developed. The number of available IPv6 addresses is 2<sup>128</sup> or approximately 3.4 x 10<sup>38</sup>. IP addresses have contributed to the development of the internet by allowing each node on the network to have unique addresses for communication.</p>
+<h4 id="routers-and-routing">Routers and routing</h4>
+<p>Routing is the process of selecting a path for traffic in a network and routers are the devices within the network that performs this function. On the internet, routers direct packets to travel down specific cables to other routers which perform the same function, eventually directing the packets to their intended destination. Routers have algorithms which consider throughput, overhead, stability and other factors to select the best route and stores these routes in a table. Routing has contributed to the development of the internet by allowing information in the form of packets to be delivered as fast as possible.</p>
+<h4 id="domains-and-dns">Domains and DNS</h4>
+<p>A domain name server maintains a directory of domain names and translates them into IP addresses. Each website has an IP address, for example one of the IP addresses of google is 172.217.25.142, which can be typed into the URL bar to access the site. However this is difficult for a human being to remember. Domain names allow the user to enter a name like ‘google.com’ into the URL bar, and as the DNS keeps a record of the IP addresses associated with that name, this connects to the website. DNS contributed to the development of the internet by making web browsing simpler for human beings, who only need to remember the name of a website instead of the IP address.</p>
+<h2 id="3-define-the-features-of-the-following-technologies-that-are-essential-in-terms-of-the-development-of-the-internet">3. Define the features of the following technologies that are essential in terms of the development of the internet:</h2>
+<ul>
+<li>TCP (word count guide: 150 - 300 words)</li>
+<li>HTTP and HTTPS (word count guide: 150 - 300 words)</li>
+<li>web browsers (requests, rendering and developer tools) (200 - 300 words)</li>
+</ul>
+<p>Explain how each technology has contributed to the development of client and server communication over the internet (50 - 150 words for each technology)</p>
+<p>Word count guide: see above.</p>
+<h4 id="tcp">TCP</h4>
+<p>TCP (transmission control protocol) is a standard that defines how to establish and maintain a connection between application programs which exchange data. TCP works with IP to define how computers send packets of data to each other.
+The major feature of TCP is the reliability of the service, which is achieved by a system of positive acknowledgement with re-transmission. At the beginning of the communication, the sender will tell the receiver the number of packets and their order. This allows the receiver to know if packets have been lost during transmission. The receiver sends a message to the sender as it received packets of data, with the sender keeping a record of these acknowledgements. If an acknowledgement is not sent within a certain period, the packet is sent again. This feature makes the service very reliable, as there are checks and acknowledgement that data has been received, but this comes at the cost of speed.</p>
+<p>TCP has contributed to the development of client and server communication over the internet by creating a method to communication data which is reliable and standardising the method of communication for the many different networks that existed previously.</p>
+<h4 id="http-and-https">HTTP and HTTPS</h4>
+<p>HTTP and HTTPS stand for hypertext transfer protocol and hypertext transfer protocol secure. Communication between clients (e.g. a web browser) and servers on the internet is done by requests and responses. When a client wants to receive data, for example to display a webpage, it sends an HTTP request to the web server, which then runs an application to process the request and sends an HTTP response back. This response contains the data, which in the example of a webpage could be an HTML page.</p>
+<p>HTTP and HTTPs have contributed to the development of client and server communication over the internet by providing the capability to allow a user's home computer to request data, which can then be displayed at home on their screen.</p>
+<h4 id="web-browsers">Web browsers</h4>
+<p>A web browser is a software application which fetches information from the internet and displays them to the user on their device. The most popular web browsers are Google Chrome, Mozilla Firefox, and Internet Explorer. The browsing experience begins when the user enters a URL, usually an HTTP or HTTPS, which requests the data needed to display the webpage. Once this data is received, the browser’s rendering engine transforms the information received, such as HTML and CSS code, into a visual representation on the user’s device. Different engines power different browsers. For example, the engines which power the three most popular browsers are Blink (Google Chrome), Gecko (Mozilla Firefox), and Trident (Internet Explorer). Each browser has also released developer tools. These developer tools provides a multitude of functionality: allowing the user to view and edit the webpage’s HTML and CSS, view and debug network activity, view the website’s performance (e.g. load speed), view memory usage and leaks, inspect all applications that are loaded, view security information, and audit the webpage for issues such as accessibility and performance.</p>
+<p>Web browsers have contributed to the development of client and server communication over the internet by providing software which allows individuals to request resources from the internet and display them at home. Due to the rendering engine of the browser, the resources are displayed in a form more easy to understand.</p>
+<h2 id="4-identify-three-data-structures-used-in-the-ruby-programming-language-and-explain-the-reasons-for-using-each">4. Identify THREE data structures used in the Ruby programming language and explain the reasons for using each.</h2>
+<p>Word count guide: 50 - 100 words on each data structure</p>
+<p>A data structure is a format for the organisation, management and storage of information which enables access and modification.</p>
+<h4 id="array">Array</h4>
+<p>An array is an ordered list of values where each element is accessed by its index number starting from ᴢero. Reasons for using an array could be:</p>
+<ul>
+<li>the programmer wants to group multiple data items under a single name</li>
+<li>the order of elements matters</li>
+<li>all the information in the array is similar, meaning that a single array might hold multiple names, but a single array would not be the ideal data structure to hold names, ages, addresses, etc as it would be confusing to query using only an index.</li>
+</ul>
+<h4 id="hash">Hash</h4>
+<p>A hash is an unordered list of key-value pairs where each element is accessed by its key. Reasons for using a hash could be:</p>
+<ul>
+<li>there are multiple pieces of data that are associated with one object. The example below contains multiple pieces of information about a single person.</li>
+</ul>
+<pre class="hljs"><code><div>info = { <span class="hljs-symbol">name:</span> “Mark”, <span class="hljs-symbol">occupation:</span> “student”, <span class="hljs-symbol">age:</span> <span class="hljs-number">30</span> }
+</div></code></pre>
+<ul>
+<li>A hash has the advantage compared to an array of being more readable as the keys can be named to describe the data held in the value.</li>
+</ul>
+<h4 id="queue">Queue</h4>
+<p>A queue is like an array in that it is an ordered list of values, with two differences being that elements can only be added to the end of the queue, and elements can only be removed from the front of the list (i.e. FIFO - first in first out). A reason to use a queue would be used when you wish restrict the manipulation of the data to FIFO or retrieve elements in the same order they were entered in.</p>
+<h2 id="5-describe-the-features-of-interpreters-and-compilers-and-how-they-are-different">5. Describe the features of interpreters and compilers and how they are different.</h2>
+<p>Word count guide: 100 - 200 words on each way code is executed.</p>
+<p><b>Compiled</b> languages are written in one language and are translated into another language which is more understandable by a computer before being run. Once translation is complete the executable code may be set aside or run. Common compiled languages include C, C++, and Rust.</p>
+<p><b>Interpreted</b> languages execute without compiling the entire source code into a machine-readable form. Instead each statement is translated into a sequence of subroutines and then into another language. Perhaps confusingly, the step of compilation into machine readable code is still performed but occurs at runtime rather than as a separate action. Examples of interpreted languages are Ruby, Python, and PHP.</p>
+<p>This difference between compiled and interpreted languages leads to three main differences:</p>
+<ul>
+<li><b>Error handling</b>. Compiled languages compile the entire source code and when throws errors only after the compilation is complete. Interpreted languages compile line-by-line and will throw an error and halt the remaining execution of the program when an error is encountered.</li>
+<li><b>Speed</b>. Compiled languages run faster than interpreted languages because interpreted languages have the additional step of turning the code into a form the computer can execute at runtime, rather than having machine-executable code already compiled.</li>
+<li><b>Platform independence</b>. For a compiled language, a program compiled on a Windows computer cannot simply be copied to a Linux computer and run correctly. The program would have to be re-compiled from the source code on the second machine to run correctly. For an interpreted language, as long as the language (e.g. Ruby) is installed on the machine, the code written in that language can be executed on computers running difference operating systems without an additional compilation step.</li>
+</ul>
+<h2 id="6-identify-two-commonly-used-programming-languages-and-explain-the-benefits-and-drawbacks-of-each">6. Identify TWO commonly used programming languages and explain the benefits and drawbacks of each.</h2>
+<p>Word count guide: 200 - 400 words on each language</p>
+<h3 id="ruby">Ruby</h3>
+<p><b>Ruby</b> is a general-purpose programming language which has been used to build some well-known projects such as Twitter and Shopify.</p>
+<h4 id="benefits">Benefits</h4>
+<ul>
+<li>Ruby was built with the intention of being a high-level language with <b>human-readable syntax</b> which can be written similarly to plain English. This is achieved by various shortcuts such as allowing the parentheses on certain methods to be omitted. For example:</li>
+</ul>
+<pre class="hljs"><code><div>puts <span class="hljs-string">"hello"</span>
+</div></code></pre>
+<p>can be written instead of</p>
+<pre class="hljs"><code><div>puts(<span class="hljs-string">"hello"</span>)
+</div></code></pre>
+<p>and allowing single-line conditionals e.g.</p>
+<pre class="hljs"><code><div>puts “something” <span class="hljs-keyword">if</span> x == <span class="hljs-number">1</span>
+</div></code></pre>
+<ul>
+<li>
+<p>There is an extensive community of Ruby developers and free packages, called <b>gems</b>, which any user can download and implement in their own projects. Gems are simple to include using a command line argument and an entire ecosystem of developers producing, testing, and modifying gems means that the best gems are likely to be iterated upon and promoted. These gems speed up the development process and allow faster deployment of projects as they allow the programmer to save time on writing components of their programs.</p>
+</li>
+<li>
+<p>Ruby is an <b>object-oriented programming language</b>, which has the benefits of modularity (if there is a problem with a certain object, we know we need to debug the code for that class only), and use of inheritance which allows us to avoid re-writing code.</p>
+</li>
+<li>
+<p>The <b>rails</b> framework which works with Ruby is another advantage. Rails is a framework written in Ruby which provides default structure for commonly required applications like databases, webpages, and the MVC model. The existence of rails makes developing and launching web applications much faster and easier.</p>
+</li>
+</ul>
+<h4 id="drawbacks">Drawbacks</h4>
+<ul>
+<li>
+<p>As an interpreted language, Ruby has <b>slower runtime speed</b> compared to many other languages. The newest releases of Ruby are improving this, however Ruby still runs slower than many of its competitors such as Lisp, PHP, and compiled languages.</p>
+</li>
+<li>
+<p>Ruby is <b>poor for developing GUI</b>. Attempts have been made to develop GUI in Ruby and gems which make the process simpler have been developed, but Ruby is still considered a poor choice for this purpose.</p>
+</li>
+</ul>
+<h3 id="c">C++</h3>
+<p><b>C++</b> is another general purpose language which was created as an extension of the C language to include classes. It is used commonly in system programming and other resource-constrained software and large applications.</p>
+<h4 id="benefits">Benefits</h4>
+<ul>
+<li><b>Portability</b>: C++ programs are platform-independent, meaning they can run the same program on different operating systems. If the programmer writes the program in Linux and then switches to Windows, the program will run without any error and without needing to re-write the code for the new operating system.</li>
+<li><b>Object-oriented</b>: like Ruby, C++ is an object-oriented programming language and has the same benefits such as modularity and use of inheritance.</li>
+<li><b>Low-level manipulation</b>: C++ is closely associated with C, which is a procedural language closely related to machine-language. This allows C++ to manipulate data at a low level.</li>
+<li><b>Memory management</b>: C++ allows the programmer to control memory management, rather than perform it automatically as in Ruby. This can be both an advantage and a disadvantage because it is something which must be managed, instead of being taken care of automatically by the garbage collector. This means that C++ requires a more complex skillset, as memory management is taken care of automatically in many programming languages, but control over memory management can be beneficial when implemented well.</li>
+</ul>
+<h4 id="disadvantages">Disadvantages</h4>
+<ul>
+<li><b>Complexity</b>: as the filtering out of unnecessary data (known as garbage collection) is not automated in C++, the programmer must master the use of pointers (variables which store the memory location of another variable). Incorrect use of these pointers can cause unexpected results or crashes.</li>
+<li><b>Security vulnerabilities</b>: due to the requirement for memory management, C++ has a vulnerability called ‘buffer-overflow’. For example lets say there is a list of 10 numbers. If you query the 11th number, many languages throw an error, but in a memory-unsafe programming language like C++, the program will access the memory location of the 11th element, if it existed. This element may be unrelated to the original list of 10 numbers. This can cause a security problem when user data such as passwords are kept in the memory location of the 11th element as they can be read even though this was not intended by the programmer.</li>
+</ul>
+<h2 id="7-identify-two-ethical-issues-from-the-areas-below-and-discuss-the-extent-to-which-an-it-professional-is-ethically-responsible-in-terms-of-the-issue">7. Identify TWO ethical issues from the areas below and discuss the extent to which an IT professional is ethically responsible in terms of the issue.</h2>
+<p>Word count guide: 200 - 400 words for each ethical issue</p>
+<p>List of topics containing ethical issues:</p>
+<ul>
+<li>access to a user’s personal information (medical, family, financial, personal attributes such as sexuality, religion, or beliefs)</li>
+<li>intellectual property, copyright, and acknowledgement.</li>
+<li>criminal acts such as theft, fraud, trafficking and distribution of prohibited substances, terrorism</li>
+<li>GPS tracking data and other types of metadata, MAC addresses, hardware fingerprints</li>
+<li>freedom of thought, conscience, speech and the media</li>
+<li>aggressive sales and marketing practices designed to mislead and deceive consumers</li>
+<li>trading of shares on the stock exchange OR crypto-currencies</li>
+</ul>
+<p>For each ethical issue identify a source of legal information relating to the ethical issue and discuss whether the law is helpful in assisting a developer to act in an ethical way.</p>
+<p>Word count guide: 200 words max</p>
+<p>Conduct research into a case study of ONE of the ethical issues you have chosen discuss how an ethical IT professional should respond to the case study and how they might mitigate or prevent ethical breaches.</p>
+<p>Word count guide: 400 - 600 words</p>
+<h3 id="ethical-issue-1-access-to-a-user%E2%80%99s-personal-information-medical-family-financial-personal-attributes-such-as-sexuality-religion-or-beliefs">Ethical issue 1: access to a user’s personal information (medical, family, financial, personal attributes such as sexuality, religion, or beliefs).</h3>
+<p>In designing an application, the IT professional is responsible for ensuring that only approved persons may access privileged information. Which persons and organisations have access to what data must be decided in the planning phase of the project.</p>
+<p>To understand which parties should have access to what data, let us consider the example of electronic health records. A doctor using the system should have the ability to view their patients’ records, but a patient should only be able to view their own record, not those of other patients. For research purposes, an academic group may have access to the data, but likely would only have access to a de-identified version, and would also have to agree to use the data only for a specific purpose.</p>
+<p>If any unintended access to data was possible, either by a person having access to data they should not be able to access or data being linked to the individual when it was meant to be anonymous, the IT professional would be responsible for the breach. If, however, the breach was caused by an authorised party choosing to defy privacy law and ethics, the IT professional would not be responsible.</p>
+<p>The IT professional would also be responsible for encryption of privileged data. For example the data should not be kept in a simple text file, even if the portal does not allow access to this information by unauthorised individuals. Encryption ensures that even if the data is accessed without authorisation, it remains unreadable.</p>
+<p>An important caveat to the idea that all personal information should be private is the use of services like Google or Facebook, where users exchange their data rather than their money for the use of the service. In this paradigm, the contract between the user and the provider of the service allows the provider to use their personal data, such as their browsing habits for the purpose of online advertisement. In this case, because the exchange of data for use of the service is agreed upon, the normal restrictions on the use of that data do not hold. This means that the IT professional may use user data in certain ways, such as by targeting advertising, without violating ethical principles. Unintended uses of data (i.e. those not contractually agreed upon) remain the responsibility of the IT professional to guard against and if those were to occur, the IT professional would be responsible.</p>
+<h3 id="source-of-legal-info-the-office-of-the-australian-information-commissioner-httpswwwoaicgovau">Source of legal info: The Office of the Australian Information Commissioner https://www.oaic.gov.au/.</h3>
+<p>The OAIC is the national regulator for privacy and freedom of information, which involves enforcing the Privacy Act 1988, Freedom of Information Act 1982, Australian Information Commissioner Act 2010.</p>
+<p>The website contains legal information about acts that are relevant for IT professionals. This includes information about which types of organisation are subject to which laws and what information is covered under the relevant Act.</p>
+<p>The law is helpful in assisting a developer to act in an ethical way up to a point. For example many know that medical records are subject to privacy, but may not know that tenancy information is also subject to privacy and only certain types of information may be collected by a real estate agent and they may only disclose it under certain circumstances. However whether something is ethical is a higher standard than whether something is legal, meaning that just because something is legal, does not mean it is ethical. Lastly, as IT is a fast-growing area, official codification in the law likely lags behind ethics and therefore laws should not be relied upon solely as a guide for behaviour.</p>
+<h3 id="ethical-issue-2-criminal-acts-such-as-theft-fraud-trafficking-and-distribution-of-prohibited-substances-terrorism">Ethical issue 2: criminal acts such as theft, fraud, trafficking and distribution of prohibited substances, terrorism.</h3>
+<p>I will be focusing on the distribution of prohibited substances, especially illegal drugs via online marketplaces. The extent to which an IT professional is ethically responsible depends on their level of involvement.</p>
+<p>The highest level of involvement is to be the entrepreneur, meaning that the IT professional is the one developing the marketplace but also running it once it is established and taking the profits from the enterprise. At this level of involvement, one would be wholly responsible for the issue. One level below this would be a developer who is hired to develop the application, knowing its illegal purpose, but is not involved in the subsequent operation. This person is partially responsible, because they are developing a platform that they know will be used for illegal purposes, even if they are not profiting from the operation. Lastly would be a person who is hired to develop an application without knowing that it will be used for an illegal operation, and with no subsequent involvement. As there are many legal uses for a 2-sided marketplace, this person would not be responsible for any ethical breaches.</p>
+<p>The other side of the ethical argument is whether providing an online marketplace reduces the harm from the acquisition of illegal drugs. Harm reduction from purchasing illegal drugs online versus on the street may come from two sources:</p>
+<ul>
+<li>The quality of the drugs</li>
+<li>Reduced potential for violence</li>
+</ul>
+<p>As illegal drugs are not regulated in the same way as pharmaceuticals, the quality of individual batches is never guaranteed. Online marketplaces provide forums and rating systems where buyers can publicly comment on the quality of the product they receive from a seller. Thereby poor-quality drugs and sellers may be discovered and possibly removed from the market.</p>
+<p>The reduced potential for violence comes from the fact that the buyer and seller are anonymous to each other, never meet face-to-face, and the exchange of money is taken care of by the platform. This may reduce violence compared to street transactions.</p>
+<p>Based on these harm reduction arguments, it is not clear that involvement in illegal drug sales is unethical, even though it is definitely illegal. An IT professional getting involved in the development of such a platform must consider the ethical arguments both for and against the venture.</p>
+<h3 id="source-of-legal-info-commonwealth-department-of-public-prosecutions-httpswwwcdppgovaucrimes-we-prosecuteserious-drugsdrug-trafficking-selling-and-cultivation">Source of legal info: Commonwealth Department of Public Prosecutions (https://www.cdpp.gov.au/crimes-we-prosecute/serious-drugs/drug-trafficking-selling-and-cultivation).</h3>
+<p>Based on this, the following are drug-related offences:</p>
+<ul>
+<li>Selling</li>
+<li>Preparation</li>
+<li>Transport</li>
+<li>Guarding or concealing</li>
+<li>Possession</li>
+<li>Manufacture</li>
+<li>Possession of a precursor</li>
+<li>Cultivation (planting, growing, harvesting)</li>
+</ul>
+<p>In the running of an online marketplace, it could be argued that the operator of a marketplace where does not fall into any of the above categories. The main legal question appears to be: is the operator of a marketplace where transactions of illegal goods take place a ‘seller’? From reading the legal documents this is not clear, however in practice individuals who run these operations have been prosecuted.</p>
+<h3 id="case-study-silk-road">Case study: Silk Road.</h3>
+<p>Silk Road was an online black market known for selling illegal drugs which operated from February 2011 to October 2013. It operated on the dark web: the part of the web which is not indexed by search engines and is only accessible using special software configured for anonymity. Silk Road contained many of the features of legal two-sided online marketplaces like ebay: forums to provide information on users’ experiences with certain drugs, how to transport drugs without detection,  how to use the drugs, and harm-reduction; buyer ratings to provide information on the quality of products and speed of shipment; and a dispute resolution system. All transactions used bitcoins as the medium of exchange because it is non-government controlled, anonymous, and untraceable.</p>
+<p>The operator of the site, Ross Ulbricht, was eventually identified by linking an online alias with other forum activity in which he gave personally identifying information. He was subsequently indicted for money laundering, computer hacking, conspiracy to traffic narcotics, and attempting to have six people killed. Ultimately Ulbricht was convicted of seven charges, including engaging in a continuing criminal enterprise, narcotics trafficking, money laundering, and computer hacking.</p>
+<p>In the situation of Silk Road, the ethics of the situation are unclear. If one is of the opinion that a marketplace which sells illegal drugs is unethical, then an ethical IT professional should stop using the platform to sell illegal products. The website could have been set up to sell other products. Even if the website was still set up to sell drugs, harm could have been mitigated by making material on harm reduction more prominent, for example by linking to information on the effects of various drugs on the body, or services for addiction.</p>
+<p>However, one may not be so unequivocally of the opinion that the online distribution of drugs in unethical. As discussed above, online selling may reduce harm compared to street selling, and therefore it could be argued that Silk Road was an ethical venture as it reduced overall harm. This viewpoint assumes that the people buying on Silk Road would buy on the street if Silk Road were unavailable. It is unclear of this is the case, or if it is not whether the reduction in overall use if users were forced to source drugs on the street rather than online would be greater than the increase in harm related to sourcing drugs on the street instead of online. For these reasons, it could be argued that no ethical breach is occurring and an IT professional would be acting ethically by promoting the activity on Silk Road.</p>
+<p>The last concern that will be discussed here is whether an IT professional that knew the identity of the operator of Silk Road would be ethically obligated to report that person to the police. The operation of Silk Road was illegal under laws related to the distribution of drugs, so an IT professional must balance concerns around confidentiality – either commercial confidentiality related to the details of a business, or personal confidentiality related to loyalty to an individual – with adherence to the law. What an IT professional should do to mitigate or prevent an ethical breach in this situation is unclear.</p>
+<h2 id="8-explain-control-flow-using-an-example-from-the-ruby-programming-language-100-words">8. Explain control flow, using an example from the Ruby programming language (100 words)</h2>
+<p>Control flow is the order in which lines of code are executed. An example from the Ruby programming language is an if/elsif/else statement:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span> x == <span class="hljs-number">1</span>
+    puts <span class="hljs-string">"x was 1"</span>
+<span class="hljs-keyword">elsif</span> x == <span class="hljs-number">2</span>
+    puts <span class="hljs-string">"x was 2"</span>
+<span class="hljs-keyword">else</span>
+    puts <span class="hljs-string">"x was something else"</span>
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<ul>
+<li>if x equals 1, line 2 executes, &quot;x was 1&quot; is printed</li>
+<li>line 3 is evaluated if line 1 was not true</li>
+<li>if x equals 2, line 4 executes, &quot;x was 2&quot; is printed</li>
+<li>line 6 executes if neither lines 1 or 3 were true</li>
+</ul>
+<h2 id="9-explain-type-coercion-100-words">9. Explain type coercion (100 words)</h2>
+<p>Type coercion is the transformation of one data type of object into a different data type with similar content. Some methods available in Ruby for type coercion are: to_i, to_s, to_sym. These will convert the data the method is called on to the integer, string, and symbol data types respectively.</p>
+<p>For example “5” (the string 5) can be coerced into an integer 5 using the to_i method in Ruby.</p>
+<pre class="hljs"><code><div>“<span class="hljs-number">5</span>”.to_i 
+=&gt; <span class="hljs-number">5</span>
+</div></code></pre>
+<p>One must be careful to use the method only on certain types of data, or type coercion may provide unexpected results. For example:</p>
+<pre class="hljs"><code><div>“hello”.to_i
+=&gt; <span class="hljs-number">0</span>
+</div></code></pre>
+<h2 id="10-explain-data-types-using-examples-100-words">10. Explain data types, using examples (100 words)</h2>
+<p>Data types are used to classify the kind of value that is held by a variable and what operations and methods can be applied to it. Some examples of data types are provided below.</p>
+<table>
+<thead>
+<tr>
+<th>Data type</th>
+<th>Explanation</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>Text</td>
+<td>“Mark”, “hello”</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>Whole number</td>
+<td>1, 5, 9562</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>Number with decimal</td>
+<td>1.0, 5.2</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>True or false</td>
+<td>True, False</td>
+</tr>
+<tr>
+<td>Nil</td>
+<td>The absence of value</td>
+<td>nil</td>
+</tr>
+</tbody>
+</table>
+<p>An understanding of data types is important to know how variables may be used. For example two integers may be added, but an integer and a string cannot be.</p>
+<h2 id="11-here%E2%80%99s-the-problem-%E2%80%9Cthere-is-a-restaurant-serving-a-variety-of-food-the-customers-want-to-be-able-to-buy-food-of-their-choice-all-the-staff-just-quit-how-can-you-build-an-app-to-replace-them%E2%80%9D">11. Here’s the problem: “There is a restaurant serving a variety of food. The customers want to be able to buy food of their choice. All the staff just quit, how can you build an app to replace them?”</h2>
+<p>Identify the classes you would use to solve the problem</p>
+<p>Write a short explanation of why you would use the classes you have identified</p>
+<p>I would implement the MVC model in order to create separation of concerns. This is important to achieve simplification and maintainability of the code as it would be easier to understand which section/s of the code must be changed in response to a desired feature or error. The following classes are required:</p>
+<h4 id="1-orderingmodel">1. OrderingModel</h4>
+<p>The role of the Model is to handle all data associated with the ordering process. OrderingModel could contain the following methods:</p>
+<ul>
+<li>'initialize' to define which foods and in what quantities are available at the restaurant</li>
+<li>Calculate number of each food item available</li>
+<li>Update number of each item available when one is ordered</li>
+<li>Update number of each item available when they are restocked</li>
+</ul>
+<h4 id="2-orderingview">2. OrderingView</h4>
+<p>The role of the View is to display information to the person ordering. OrderingView could contain the following methods:</p>
+<ul>
+<li>‘greeting’ to welcome the user to the restaurant</li>
+<li>‘menu’ to inform the user what food is available</li>
+<li>‘what_would_you_like_to_order’ to print to the screen a request for user input and return their response</li>
+<li>‘wrong_answer’ to handle any unexpected inputs</li>
+<li>‘confirmation’ to allow the user to review their order</li>
+<li>‘thank_you’ to thank the person for dining at the restaurant</li>
+</ul>
+<h4 id="3-orderingcontroller">3. OrderingController</h4>
+<p>The controller will contain the logic of the program. This would include calling the greeting, calling the method which prompts the user for input, taking the user input and responding with the correct method from OrderingView (either showing the menu or calling another method asking what they would like to order), calling the methods from OrderintModel to update the stock of food items (either in response to an order which would decrease the stock or a restock which would increase the stock), and finally calling the method to say thank you to the user when they are finished ordering.</p>
+<h2 id="12-identify-and-explain-the-error-in-the-code-that-is-preventing-correct-execution-of-the-program-100-words">12. Identify and explain the error in the code that is preventing correct execution of the program (100 words)</h2>
+<pre class="hljs"><code><div>celsius = gets
+fahrenheit = (celsius * <span class="hljs-number">9</span> / <span class="hljs-number">5</span>) + <span class="hljs-number">32</span>
+print <span class="hljs-string">"The result is: "</span>
+print fahrenheit
+puts <span class="hljs-string">"."</span>
+</div></code></pre>
+<p>The problem is that the variable celsius is a string because it is created via the gets method. This causes a TypeError in line 2 because a string cannot be divided by an integer. The error can be corrected by changing gets to gets.to_f in line 1 which coerces the data type to float, which can then be used in a calculation and provides a float solution. There would be a rounding error if celsius was coerced to an integer. The corrected code is presented below:</p>
+<pre class="hljs"><code><div>celsius = gets.to_f
+fahrenheit = (celsius * <span class="hljs-number">9</span> / <span class="hljs-number">5</span>) + <span class="hljs-number">32</span>
+print <span class="hljs-string">"The result is: "</span>
+print fahrenheit
+print <span class="hljs-string">"."</span>
+</div></code></pre>
+<h2 id="13-the-following-code-looks-for-the-first-two-elements-that-are-out-of-order-and-swaps-them-however-it-is-not-producing-the-correct-results-rewrite-the-code-so-that-it-works-correctly">13. The following code looks for the first two elements that are out of order and swaps them; however, it is not producing the correct results. Rewrite the code so that it works correctly.</h2>
+<pre class="hljs"><code><div>arr = [<span class="hljs-number">5</span>, <span class="hljs-number">22</span>, <span class="hljs-number">29</span>, <span class="hljs-number">39</span>, <span class="hljs-number">19</span>, <span class="hljs-number">51</span>, <span class="hljs-number">78</span>, <span class="hljs-number">96</span>, <span class="hljs-number">84</span>]
+i = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> (i &lt; arr.size - <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> arr[i] &lt; arr[i + <span class="hljs-number">1</span>])
+	i = i + <span class="hljs-number">1</span> <span class="hljs-keyword">end</span>
+puts i
+    arr[i] = arr[i + <span class="hljs-number">1</span>]
+    arr[i + <span class="hljs-number">1</span>] = arr[i]
+</div></code></pre>
+<p>After the above code is executed, the array is the following:</p>
+<pre class="hljs"><code><div>arr = [<span class="hljs-number">5</span>, <span class="hljs-number">22</span>, <span class="hljs-number">29</span>, <span class="hljs-number">19</span>, <span class="hljs-number">19</span>, <span class="hljs-number">51</span>, <span class="hljs-number">78</span>, <span class="hljs-number">96</span>, <span class="hljs-number">84</span>]
+</div></code></pre>
+<p>The corrected code is below:</p>
+<pre class="hljs"><code><div>arr = [<span class="hljs-number">5</span>, <span class="hljs-number">22</span>, <span class="hljs-number">29</span>, <span class="hljs-number">39</span>, <span class="hljs-number">19</span>, <span class="hljs-number">51</span>, <span class="hljs-number">78</span>, <span class="hljs-number">96</span>, <span class="hljs-number">84</span>]
+i = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> (i &lt; arr.size - <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> arr[i] &lt; arr[i + <span class="hljs-number">1</span>])
+    i = i + <span class="hljs-number">1</span> <span class="hljs-keyword">end</span>
+puts i
+placeholder = arr[i]
+arr[i] = arr[i + <span class="hljs-number">1</span>]
+arr[i + <span class="hljs-number">1</span>] = placeholder
+</div></code></pre>
+<p>With the correction, the array has the first two out-of-order elements (39 and 19) swapped:</p>
+<pre class="hljs"><code><div>arr = [<span class="hljs-number">5</span>, <span class="hljs-number">22</span>, <span class="hljs-number">29</span>, <span class="hljs-number">19</span>, <span class="hljs-number">39</span>, <span class="hljs-number">51</span>, <span class="hljs-number">78</span>, <span class="hljs-number">96</span>, <span class="hljs-number">84</span>]
+</div></code></pre>
+<h2 id="14-demonstrate-your-algorithmic-thinking-through-completing-the-following-two-tasks-in-order">14. Demonstrate your algorithmic thinking through completing the following two tasks, in order:</h2>
+<ol>
+<li>Create a flowchart to outline the steps for listing all prime numbers between 1 and 100 (inclusive). Your flowchart should make use of standard conventions for flowcharts to indicate processes, tasks, actions, or operations</li>
+<li>Write pseudocode for the process outlined in your flowchart</li>
+</ol>
+<h4 id="flow-chart">Flow chart</h4>
+<p><img src="file:///home/markball/projects/ruby/workbook/docs/q_14_flowchart.jpg" alt="q_14_flowchart"></p>
+<h4 id="pseudocode">Pseudocode</h4>
+<ul>
+<li>The logic of the solution is that each number ‘n’ between 1 and 100 (inclusive) must be tested (meaning checked if it is divisible) by all prime numbers less than n/2.</li>
+<li>Prime numbers may be checked rather than all numbers because if a number is divisible by a number, it will also be divisible by factors of that number. For example if a number is divisible by 3, we do not need to check whether it is divisible by 6, 9, 12 etc because if it is divisible by those numbers, it will be divisible by all factors of those numbers.</li>
+<li>Only primes less than half the value of n need to be checked because any number more than half of n can never be a factor of n. For example if we are testing whether 11 is a prime, we do not need to check if 7 is a factor because it only goes into 11 once.</li>
+</ul>
+<ol>
+<li>We start by initialising variables:
+<ul>
+<li>The value we are testing to determine if they are prime: n = 1</li>
+<li>The array of primes which we will use to test n against. At the start it is an array with the number 2 in it.</li>
+</ul>
+</li>
+<li>As we have been asked only to find the primes less than or equal to 100, we test only if n &lt;= 100, else we end the program.</li>
+<li>We test if n is divisible by the next (on the first iteration, this would be the first) number in the primes array. If it is, we know n is not prime and we go to the next n (back to step 2).</li>
+<li>If n is not divisible by the prime, we ask if the next prime in the array is &lt; n/2. If it is, we test if n is divisible by the next prime (back to step 3).</li>
+<li>If the next prime in the array either does not exist or is not &lt; n/2, then n is a prime number. We add n to the array of primes so that it may be used to test future numbers.</li>
+<li>We then add 1 to n and continue testing if n is less than or equal to 100 (back to step 2).</li>
+<li>If n is greater than 100, we stop the program.</li>
+</ol>
+<h2 id="15-write-pseudocode-or-ruby-code-for-the-following-problem">15. Write pseudocode OR Ruby code for the following problem:</h2>
+<p>You have access to two variables: raining (boolean) and temperature (integer). If it’s raining and the temperature is less than 15 degrees, print to the screen “It’s wet and cold”, if it is less than 15 but not raining print “It’s not raining but cold”. If it’s greater than or equal to 15 but not raining print “It’s warm but not raining”, and otherwise tell them “It’s warm and raining”.</p>
+<h4 id="ruby-code">Ruby code</h4>
+<pre class="hljs"><code><div>raining = <span class="hljs-literal">false</span>
+temperature = <span class="hljs-number">16</span>
+
+<span class="hljs-keyword">if</span> raining == <span class="hljs-literal">true</span>
+    <span class="hljs-keyword">if</span> temperature &lt; <span class="hljs-number">15</span>
+        puts(<span class="hljs-string">"It's wet and cold"</span>)
+    <span class="hljs-keyword">else</span>
+        puts(<span class="hljs-string">"It's warm and raining"</span>)
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">elsif</span> raining == <span class="hljs-literal">false</span>
+    <span class="hljs-keyword">if</span> temperature &lt; <span class="hljs-number">15</span>
+        puts(<span class="hljs-string">"It's not raining but cold"</span>)
+    <span class="hljs-keyword">else</span>
+        puts(<span class="hljs-string">"It's warm but not raining"</span>)
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">else</span>
+    puts(<span class="hljs-string">"Invalid input"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<h2 id="16-an-allergy-test-produces-a-single-numeric-score-which-contains-the-information-about-all-the-allergies-the-person-has-that-they-were-tested-for-the-list-of-items-and-their-value-that-were-tested-are">16. An allergy test produces a single numeric score which contains the information about all the allergies the person has (that they were tested for). The list of items (and their value) that were tested are:</h2>
+<p>eggs (1)
+peanuts (2)
+shellfish (4)
+strawberries (8)
+tomatoes (16)
+chocolate (32)
+pollen (64)
+cats (128)</p>
+<p>So if Tom is allergic to peanuts and chocolate, he gets a score of 34.</p>
+<p>Write a program that, given a person’s score can tell them: a) whether or not they’re allergic to a given item b) the full list of allergies.</p>
+<h4 id="solution">Solution</h4>
+<p>Github: https://github.com/Mark-Ball/T1A1-workbook/blob/master/q_16.rb</p>
+<p>The solution requires the Ruby gem tty-prompt (https://github.com/piotrmurach/tty-prompt). This gem can be installed by typing the following into the terminal:</p>
+<blockquote>
+<p>gem install tty-prompt</p>
+</blockquote>
+<h4 id="ruby-code">Ruby code</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">require</span> <span class="hljs-string">"tty-prompt"</span>
+prompt = TTY::Prompt.new
+
+<span class="hljs-comment">#identifies the highest power of two that is lower than score, returns that number</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">identify_highest_power</span><span class="hljs-params">(value)</span></span>
+    powers_of_two = [<span class="hljs-number">256.0</span>, <span class="hljs-number">128.0</span>, <span class="hljs-number">64.0</span>, <span class="hljs-number">32.0</span>, <span class="hljs-number">16.0</span>, <span class="hljs-number">8.0</span>, <span class="hljs-number">4.0</span>, <span class="hljs-number">2.0</span>, <span class="hljs-number">1.0</span>]
+
+    <span class="hljs-keyword">for</span> power <span class="hljs-keyword">in</span> powers_of_two
+        <span class="hljs-keyword">if</span> value / power &lt; <span class="hljs-number">1</span>
+            <span class="hljs-keyword">next</span>
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-keyword">return</span> power
+        <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">detect_allergies</span><span class="hljs-params">(score)</span></span>
+    allergies_for_each_value = {
+        <span class="hljs-string">"1"</span> =&gt; <span class="hljs-string">"eggs"</span>,
+        <span class="hljs-string">"2"</span> =&gt; <span class="hljs-string">"peanuts"</span>,
+        <span class="hljs-string">"4"</span> =&gt; <span class="hljs-string">"shellfish"</span>,
+        <span class="hljs-string">"8"</span> =&gt; <span class="hljs-string">"strawberries"</span>,
+        <span class="hljs-string">"16"</span> =&gt; <span class="hljs-string">"tomatoes"</span>,
+        <span class="hljs-string">"32"</span> =&gt; <span class="hljs-string">"chocolate"</span>,
+        <span class="hljs-string">"64"</span> =&gt; <span class="hljs-string">"pollen"</span>,
+        <span class="hljs-string">"128"</span> =&gt; <span class="hljs-string">"cats"</span>
+    }
+
+    allergies = []
+    <span class="hljs-keyword">while</span> score &gt; <span class="hljs-number">0</span> <span class="hljs-comment"># the loop pushes the allergy corresponding to the highest index onto the array, then subtracts that value from the score and tests again</span>
+        allergies.push(allergies_for_each_value[identify_highest_power(score).to_i.to_s])
+        score -= identify_highest_power(score) 
+        identify_highest_power(score)
+    <span class="hljs-keyword">end</span>
+
+    <span class="hljs-keyword">return</span> allergies
+<span class="hljs-keyword">end</span>
+
+ <span class="hljs-comment">#loops through the array of allergies created by detect_allergies(score) and checks if a specific allergy is in the array </span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">query_allergies</span><span class="hljs-params">(allergy, score)</span></span>
+    list_of_allergies = detect_allergies(score)
+    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> list_of_allergies
+        <span class="hljs-keyword">if</span> item == allergy
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"You are allergic to <span class="hljs-subst">#{allergy}</span>."</span>
+        <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"You are not allergic to <span class="hljs-subst">#{allergy}</span>."</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-literal">true</span>
+    puts(<span class="hljs-string">"What is your allergy score?"</span>)
+    score = gets.chomp
+    <span class="hljs-keyword">if</span> score.to_i &gt; <span class="hljs-number">255</span> <span class="hljs-params">||</span> score.to_i &lt; <span class="hljs-number">1</span>
+        p(<span class="hljs-string">"Impossible to compute"</span>)
+    <span class="hljs-keyword">else</span> 
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-literal">true</span>
+    query = prompt.select(
+        <span class="hljs-string">"What would you like to know?"</span>, 
+        [
+            <span class="hljs-string">"Query a specific allergy"</span>, 
+            <span class="hljs-string">"Full list of allergies"</span>, 
+            <span class="hljs-string">"Exit"</span>
+        ],
+        <span class="hljs-symbol">cycle:</span><span class="hljs-literal">true</span>,
+        <span class="hljs-symbol">symbols:</span> {<span class="hljs-symbol">marker:</span> <span class="hljs-string">"&gt;"</span>})
+
+    <span class="hljs-keyword">if</span> query == <span class="hljs-string">"Query a specific allergy"</span>
+        specific_allergy = prompt.select(
+            <span class="hljs-string">"Which allergen would you like to query?"</span>,
+            [
+                <span class="hljs-string">"Eggs"</span>, 
+                <span class="hljs-string">"Peanuts"</span>, 
+                <span class="hljs-string">"Shellfish"</span>, 
+                <span class="hljs-string">"Strawberries"</span>, 
+                <span class="hljs-string">"Tomatoes"</span>, 
+                <span class="hljs-string">"Chocolate"</span>, 
+                <span class="hljs-string">"Pollen"</span>, 
+                <span class="hljs-string">"Cats"</span>
+            ],
+            <span class="hljs-symbol">cycle:</span><span class="hljs-literal">true</span>,
+            <span class="hljs-symbol">symbols:</span> {<span class="hljs-symbol">marker:</span> <span class="hljs-string">"&gt;"</span>})
+        puts(query_allergies(specific_allergy.downcase, score.to_i))
+    <span class="hljs-keyword">elsif</span> query == <span class="hljs-string">"Full list of allergies"</span>
+        puts(<span class="hljs-string">"Your allergies are: <span class="hljs-subst">#{detect_allergies(score.to_i)}</span>."</span>)
+    <span class="hljs-keyword">elsif</span> query == <span class="hljs-string">"Exit"</span>
+        exit
+    <span class="hljs-keyword">else</span>
+        puts(<span class="hljs-string">"Invalid input"</span>)
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+
+</body>
+</html>

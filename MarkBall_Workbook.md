@@ -365,7 +365,7 @@ arr = [5, 22, 29, 19, 39, 51, 78, 96, 84]
 2. Write pseudocode for the process outlined in your flowchart
 
 #### Flow chart
-![q_14_flowchart](./docs/q_14_flowchart.jpg)
+![q_14_flowchart](https://github.com/Mark-Ball/T1A1-workbook/blob/master/docs/q_14_flowchart.jpg?raw=true)
 
 #### Pseudocode
 - The logic of the solution is that each number ‘n’ between 1 and 100 (inclusive) must be tested (meaning checked if it is divisible) by all prime numbers less than n/2.
