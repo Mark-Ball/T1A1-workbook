@@ -316,10 +316,10 @@ print "The result is: "
 print fahrenheit
 puts "."
 ```
-The problem is that the variable celsius is a string because anything passed in via the gets method is the datatype string. This causes a TypeError in line 2 because a string cannot be divided by an integer. The error can be corrected by changing gets to gets.to_i in line 1 which coerces the data type to integer, which can then be used in a calculation. The corrected code is presented below:
+The problem is that the variable celsius is a string because it created via the gets method. This causes a TypeError in line 2 because a string cannot be divided by an integer. The error can be corrected by changing gets to gets.to_f in line 1 which coerces the data type to float, which can then be used in a calculation. Provides a float solution. There would be a rounding error if gets was coerced to an integer. The corrected code is presented below:
 ```Ruby
-celcius = gets.to_i
-fahrenheit = (celcius * 9 / 5) + 32
+celsius = gets.to_f
+fahrenheit = (celsius * 9 / 5) + 32
 print "The result is: "
 print fahrenheit
 print "."
